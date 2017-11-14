@@ -1,0 +1,93 @@
+package com.example.jd.home.bean;
+
+import com.google.gson.Gson;
+
+import java.util.List;
+
+/**
+ * @author 赵利芳
+ *         类的作用：
+ * @date
+ */
+
+public class SYBean {
+
+    /**
+     * ver : 1510557000000
+     * goods_list : [{"normal_price":6500,"cnt":146,"thumb_url":"http://omsproductionimg.yangkeduo.com/images/2017-11-08/7431f99f92d5a534b8ebb185cdc66e1a.jpeg","event_type":12,"country":"","short_name":"【亏本冲量 1000件卖完涨价】雨婷家纺加厚床单床裙床罩磨毛四件套秋冬保暖韩版公主四件套 1.5/1.8/2.0米床可选","group":{"customer_num":2,"price":6380},"allowed_region":"2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32","time":1510320303,"image_url":"http://omsproductionimg.yangkeduo.com/images/2017-11-08/d2aadb6fa18b98734b56d5d1ffd82f80.jpeg","market_price":19900,"goods_name":"【亏本冲量 1000件卖完涨价】雨婷家纺加厚床单床裙床罩磨毛四件套秋冬保暖韩版公主四件套 1.5/1.8/2.0米床可选","hd_thumb_url":"http://omsproductionimg.yangkeduo.com/images/2017-11-08/073882cdd288317459c8181e91f45547.jpeg","quantity":854,"is_onsale":true,"goods_id":184431045,"is_app":0,"mall_id":913019,"region_limit":0},{"normal_price":590,"cnt":24,"thumb_url":"http://omsproductionimg.yangkeduo.com/images/2017-09-24/7aaaa7e8355c210889e863ad7c4c50dc.jpeg","event_type":0,"country":"","short_name":"【双十一提前购】【保色貔貅 招财转运】【多款可选】天然红玛瑙转运招财貔貅手链黑红玛瑙六字真言貔貅手串男女饰品","group":{"customer_num":2,"price":390},"allowed_region":"2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32","time":1510556982,"image_url":"http://omsproductionimg.yangkeduo.com/images/2017-09-24/249e0b2b1593f5feeb3c3b27880cb0ce.jpeg","market_price":16800,"goods_name":"【双十一提前购】【保色貔貅 招财转运】【多款可选】天然红玛瑙转运招财貔貅手链黑红玛瑙六字真言貔貅手串男女饰品","hd_thumb_url":"http://omsproductionimg.yangkeduo.com/images/2017-09-24/3ae5d49e8da0655d1337b6b8d2f35492.jpeg","quantity":2076,"is_onsale":true,"goods_id":93261799,"is_app":0,"mall_id":204113,"region_limit":0},{"normal_price":2780,"cnt":873,"thumb_url":"http://omsproductionimg.yangkeduo.com/images/2017-11-09/23cb4c0d0882fbe95566ad086292f329.jpeg","event_type":0,"country":"","short_name":"【双十一特惠】青花瓷双层杯茶具套装特价隔热陶瓷功夫整套茶具家用大号茶壶套装 送过滤网","group":{"customer_num":2,"price":2380},"allowed_region":"2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32","time":1510540176,"image_url":"http://omsproductionimg.yangkeduo.com/images/2017-07-07/80f7439d5d76170e1d4091d5b4a65541.jpeg","market_price":36900,"goods_name":"【双十一特惠】青花瓷双层杯茶具套装特价隔热陶瓷功夫整套茶具家用大号茶壶套装 送过滤网","hd_thumb_url":"http://omsproductionimg.yangkeduo.com/images/2017-11-09/520747436a6f9b240710c780c28031ff.jpeg","quantity":2019,"is_onsale":true,"goods_id":18748024,"is_app":0,"mall_id":313721,"region_limit":0},{"normal_price":1280,"cnt":528,"thumb_url":"http://omsproductionimg.yangkeduo.com/images/2017-11-08/30a4ccecad8dd6a5c75d9c0ab1d262bb.jpeg","event_type":0,"country":"","short_name":"【立即止牙痛】【第二支半价】牙疼牙痛牙痛喷剂 草本配方 蜂蜜紫草牙疼痛喷剂 牙龈肿痛立可停蛀虫牙上火龋齿 牙周炎喷剂","group":{"customer_num":2,"price":1180},"allowed_region":"2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32","time":1510300187,"image_url":"http://omsproductionimg.yangkeduo.com/images/2017-10-07/dc8d358f0ed2a51b70287985a0216c87.jpeg","market_price":4800,"goods_name":"【立即止牙痛】【第二支半价】牙疼牙痛牙痛喷剂 草本配方 蜂蜜紫草牙疼痛喷剂 牙龈肿痛立可停蛀虫牙上火龋齿 牙周炎喷剂","hd_thumb_url":"http://omsproductionimg.yangkeduo.com/images/2017-11-08/f4e936dc0b1d9fe1a42f2c3a109be429.jpeg","quantity":4474,"is_onsale":true,"goods_id":110143127,"is_app":0,"mall_id":172818,"region_limit":0},{"normal_price":990,"cnt":1863,"thumb_url":"http://omsproductionimg.yangkeduo.com/images/2017-05-25/3401bbdbbcba72de878fc5ff9ae84617.jpeg","event_type":0,"country":"","short_name":"【6件套】【买就送鸭嘴夹】【几十款可选】儿童发夹发饰套装可爱公主小女孩水貂毛皇冠头饰女童发卡宝宝卡子","group":{"customer_num":2,"price":830},"allowed_region":"2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32","time":1510544376,"image_url":"http://omsproductionimg.yangkeduo.com/images/2017-05-25/a963047234e8eb069103f19ae0ed6a1e.jpeg","market_price":1900,"goods_name":"【6件套】【买就送鸭嘴夹】【几十款可选】儿童发夹发饰套装可爱公主小女孩水貂毛皇冠头饰女童发卡宝宝卡子","hd_thumb_url":"http://omsproductionimg.yangkeduo.com/images/2017-05-25/cd81497820cd8340ea0f46da1ca67d64.jpeg","quantity":40137,"is_onsale":true,"goods_id":8340048,"is_app":0,"mall_id":197054,"region_limit":1},{"normal_price":2980,"cnt":37,"thumb_url":"http://omsproductionimg.yangkeduo.com/images/2017-10-26/9b2f6b24a17bed957fa1e2fb4df0d67c.jpeg","event_type":0,"country":"","short_name":"【19.5 元抢 600 件，抢完恢复 24.8 元】冬季男士棉鞋男款高帮加绒保暖男鞋防滑休闲软底棉鞋中老年人爸爸鞋","group":{"customer_num":2,"price":1950},"allowed_region":"2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,22,23,24,25,26,27,30,31,32","time":1510540181,"image_url":"http://omsproductionimg.yangkeduo.com/images/2017-10-26/9c1ca2d500a8c68c6ba6dbb5320fc5b1.jpeg","market_price":5800,"goods_name":"【19.5 元抢 600 件，抢完恢复 24.8 元】冬季男士棉鞋男款高帮加绒保暖男鞋防滑休闲软底棉鞋中老年人爸爸鞋","hd_thumb_url":"http://omsproductionimg.yangkeduo.com/images/2017-10-26/c31e3d3462d44c24990b8d2a658c325b.jpeg","quantity":1081,"is_onsale":true,"goods_id":147006421,"is_app":0,"mall_id":177028,"region_limit":1},{"normal_price":5900,"cnt":26,"thumb_url":"http://omsproductionimg.yangkeduo.com/images/2017-10-18/c1d4aa05ec75187dd241ef8a01021890.jpeg","event_type":0,"country":"","short_name":"马丁靴女英伦风2017秋冬新款明星同款加绒保暖真皮粗跟短靴女鞋妈妈鞋低跟孕妇鞋侧拉链系带坡跟短筒学生靴子百搭及裸靴","group":{"customer_num":2,"price":4900},"allowed_region":"2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32","time":1510540187,"image_url":"http://omsproductionimg.yangkeduo.com/images/2017-10-18/1b35f250454640bb627e8951806695d8.jpeg","market_price":19900,"goods_name":"马丁靴女英伦风2017秋冬新款明星同款加绒保暖真皮粗跟短靴女鞋妈妈鞋低跟孕妇鞋侧拉链系带坡跟短筒学生靴子百搭及裸靴","hd_thumb_url":"http://omsproductionimg.yangkeduo.com/images/2017-10-18/c69251a31f61ddd08bf0b55b6ed74ced.jpeg","quantity":484,"is_onsale":true,"goods_id":126313855,"is_app":0,"mall_id":317221,"region_limit":0},{"normal_price":6900,"cnt":2071,"thumb_url":"http://omsproductionimg.yangkeduo.com/images/2017-11-09/e0b159c818427804c99a195c2b062573.jpeg","event_type":12,"country":"","short_name":"外套2017秋冬季新款中长女装春韩版棒球服夹克百搭风衣港味衣服潮","group":{"customer_num":2,"price":2990},"allowed_region":"2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32","time":1510320001,"image_url":"http://omsproductionimg.yangkeduo.com/images/2017-11-09/84efa4e9d3b4c7b3e7f85c21dbf16463.jpeg","market_price":39800,"goods_name":"外套2017秋冬季新款中长女装春韩版棒球服夹克百搭风衣港味衣服潮","hd_thumb_url":"http://omsproductionimg.yangkeduo.com/images/2017-11-09/afa3754f2d3c43e49af0ce4a7e0f1da0.jpeg","quantity":674,"is_onsale":true,"goods_id":184449413,"is_app":0,"mall_id":944214,"region_limit":0},{"normal_price":7990,"cnt":192,"thumb_url":"http://omsproductionimg.yangkeduo.com/images/2017-10-17/e5c2030e29629f781c403f2e394057d9.jpeg","event_type":0,"country":"","short_name":"【马甲+上衣+裤】童装男童加绒加厚卫衣三件套1-2-3-4-5岁儿童服装男宝宝冬装套装儿童恐龙三件套小童恐龙三件套","group":{"customer_num":2,"price":6990},"allowed_region":"2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32","time":1510223974,"image_url":"http://omsproductionimg.yangkeduo.com/images/2017-10-17/6490c4873108a49da858be0b6df859c6.jpeg","market_price":16800,"goods_name":"【马甲+上衣+裤】童装男童加绒加厚卫衣三件套1-2-3-4-5岁儿童服装男宝宝冬装套装儿童恐龙三件套小童恐龙三件套","hd_thumb_url":"http://omsproductionimg.yangkeduo.com/images/2017-10-17/269e07bede945f8413848aafeaaac9cc.jpeg","quantity":218,"is_onsale":true,"goods_id":125091894,"is_app":0,"mall_id":434687,"region_limit":0},{"normal_price":5200,"cnt":25292,"thumb_url":"http://omsproductionimg.yangkeduo.com/images/2017-11-01/b48a429b5907e0dffca86a9e9d00ef90.jpeg","event_type":0,"country":"","short_name":"【还您紧致如处子】【买一送二】【私处紧致排毒修复缩阴】速效缩阴杀菌止痒去异味除垢养阴护巢女性私处护理缩阴器收缩棒","group":{"customer_num":2,"price":4900},"allowed_region":"2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,29,30,31,32","time":1509632979,"image_url":"http://omsproductionimg.yangkeduo.com/images/2017-08-06/c86096c5dc3cb1921c4365035546f68c.jpeg","market_price":15900,"goods_name":"【还您紧致如处子】【买一送二】【私处紧致排毒修复缩阴】速效缩阴杀菌止痒去异味除垢养阴护巢女性私处护理缩阴器收缩棒","hd_thumb_url":"http://omsproductionimg.yangkeduo.com/images/2017-11-01/bfd6f3e256742263359a34f2a1fe0f01.jpeg","quantity":4190,"is_onsale":true,"goods_id":48255980,"is_app":0,"mall_id":386844,"region_limit":1},{"normal_price":2680,"cnt":11,"thumb_url":"http://omsproductionimg.yangkeduo.com/images/2017-10-21/8c7587979f7bf075a5b12d423d27de81.jpeg","event_type":0,"country":"","short_name":"【多款可选】老人家工艺品创意摆件老头老太太新房新家装修客厅电视柜小摆设家居装饰品酒柜闺蜜结婚礼物","group":{"customer_num":2,"price":2480},"allowed_region":"2,3,4,5,6,7,8,10,11,12,13,14,15,16,17,18,22,23,24,25,26,27,30,31,32","time":1510540774,"image_url":"http://omsproductionimg.yangkeduo.com/images/2017-10-21/c798d65300841006fb973752424daa8f.jpeg","market_price":8800,"goods_name":"【多款可选】老人家工艺品创意摆件老头老太太新房新家装修客厅电视柜小摆设家居装饰品酒柜闺蜜结婚礼物","hd_thumb_url":"http://omsproductionimg.yangkeduo.com/images/2017-10-21/418311833fc0590c2da912993c8f1624.jpeg","quantity":583,"is_onsale":true,"goods_id":134555466,"is_app":0,"mall_id":307861,"region_limit":1},{"normal_price":980,"cnt":10,"thumb_url":"http://omsproductionimg.yangkeduo.com/images/2017-09-13/ea0fe7c57ba645f5b074655b0c3a107f.jpeg","event_type":12,"country":"","short_name":"【买三送一】秋季四季护脸面罩防风防尘保暖护脸骑行口罩骑士装备防紫外线护颈短薄防尘防雾霾透气棉抓绒短面罩","group":{"customer_num":2,"price":880},"allowed_region":"2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,22,23,24,25,26,27,30,31,32,20,21","time":1510549490,"image_url":"http://omsproductionimg.yangkeduo.com/images/2017-09-13/aa97e903395159df0f24a96d74352077.jpeg","market_price":3800,"goods_name":"【买三送一】秋季四季护脸面罩防风防尘保暖护脸骑行口罩骑士装备防紫外线护颈短薄防尘防雾霾透气棉抓绒短面罩","hd_thumb_url":"http://omsproductionimg.yangkeduo.com/images/2017-09-13/4468ef8e5267ae4dd1584b6752971dde.jpeg","quantity":989,"is_onsale":true,"goods_id":79462500,"is_app":0,"mall_id":122928,"region_limit":0},{"normal_price":3090,"cnt":6,"thumb_url":"http://omsproductionimg.yangkeduo.com/images/2017-10-24/9a9253b6e2cad18e9bb641de19e59160.jpeg","event_type":0,"country":"","short_name":"秋冬季外穿加绒加厚打底裤女士长裤子保暖紧身高腰弹力小脚铅笔裤","group":{"customer_num":2,"price":2980},"allowed_region":"2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,26,27,28,30,31,32","time":1510522769,"image_url":"http://omsproductionimg.yangkeduo.com/images/2017-10-24/58f13b2120d987cb16d106bb5082664d.jpeg","market_price":18800,"goods_name":"秋冬季外穿加绒加厚打底裤女士长裤子保暖紧身高腰弹力小脚铅笔裤","hd_thumb_url":"http://omsproductionimg.yangkeduo.com/images/2017-10-24/5b51dcf685e3196bfc0ec9075b21c62d.jpeg","quantity":694,"is_onsale":true,"goods_id":141014808,"is_app":0,"mall_id":169102,"region_limit":1},{"normal_price":1080,"cnt":0,"thumb_url":"http://omsproductionimg.yangkeduo.com/images/2017-11-11/43ade6bc5eeaab79db4a5697b4190c3c.jpeg","event_type":0,"country":"","short_name":"6本282页3本6本可选送蜡笔儿童涂色画涂色书3-6岁幼儿园阶梯涂色画画书绘画涂鸦画册宝宝填色入门学画画启蒙早教书籍","group":{"customer_num":2,"price":980},"allowed_region":"2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32","time":1510553974,"image_url":"http://omsproductionimg.yangkeduo.com/images/2017-11-11/db39d563739828fba66df03c55293126.jpeg","market_price":13090,"goods_name":"6本282页3本6本可选送蜡笔儿童涂色画涂色书3-6岁幼儿园阶梯涂色画画书绘画涂鸦画册宝宝填色入门学画画启蒙早教书籍","hd_thumb_url":"http://omsproductionimg.yangkeduo.com/images/2017-11-11/e54f7e8c753edb31cdd3aef76c30c2ea.jpeg","quantity":500,"is_onsale":true,"goods_id":191273864,"is_app":0,"mall_id":194937,"region_limit":0},{"normal_price":3590,"cnt":0,"thumb_url":"http://omsproductionimg.yangkeduo.com/images/2017-11-11/f034ff8fccd0485f05c35cb4ecdda427.jpeg","event_type":0,"country":"","short_name":"【全身加绒 袖子也加绒】加绒打底衫2017冬季新款韩版女装保暖上衣服内搭加厚高领长袖t恤加绒打底衫女保暖上衣内搭加厚高领","group":{"customer_num":2,"price":2990},"allowed_region":"2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32","time":1510556691,"image_url":"http://omsproductionimg.yangkeduo.com/images/2017-11-11/da635ac515388c3cc5d2e352d10c075b.jpeg","market_price":23990,"goods_name":"【全身加绒 袖子也加绒】加绒打底衫2017冬季新款韩版女装保暖上衣服内搭加厚高领长袖t恤加绒打底衫女保暖上衣内搭加厚高领","hd_thumb_url":"http://omsproductionimg.yangkeduo.com/images/2017-11-11/dbc986e7600b6202fb7c4523cc45a7d0.jpeg","quantity":960,"is_onsale":true,"goods_id":191522376,"is_app":0,"mall_id":503421,"region_limit":0},{"normal_price":1080,"cnt":1133,"thumb_url":"http://omsproductionimg.yangkeduo.com/images/2017-11-07/afedcc6fb6c68cc2e8253d3b57761870.jpeg","event_type":0,"country":"","short_name":"红枸杞2017头茬新货   正宗宁夏中宁枸杞子 营养价值高 无添加不染色 500g 250g 100g","group":{"customer_num":2,"price":860},"allowed_region":"2,3,4,6,7,8,9,10,11,12,13,14,15,16,17,18,22,23,24,25,26,27,30,31,32","time":1510196074,"image_url":"http://omsproductionimg.yangkeduo.com/images/2017-11-07/c417faf0eb0825d284fa6f642c486d95.jpeg","market_price":5800,"goods_name":"红枸杞2017头茬新货   正宗宁夏中宁枸杞子 营养价值高 无添加不染色 500g 250g 100g","hd_thumb_url":"http://omsproductionimg.yangkeduo.com/images/2017-09-20/0490058d2761b9c36a17b9eb3aa8c072.jpeg","quantity":29764,"is_onsale":true,"goods_id":180532726,"is_app":0,"mall_id":613858,"region_limit":1},{"normal_price":8500,"cnt":1932,"thumb_url":"http://omsproductionimg.yangkeduo.com/images/2017-11-07/435c36be7594f8012cf6589778879088.jpeg","event_type":12,"country":"","short_name":"【官方正品】 月瘦18斤懒人减肥神器甩脂机抖抖机瘦身腰带男女通用瘦肚子甩脂腰带瘦腿瘦腰震动甩肉机减肥机家用健身器材","group":{"customer_num":2,"price":7500},"allowed_region":"2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32","time":1510231490,"image_url":"http://omsproductionimg.yangkeduo.com/images/2017-09-10/a624284f3588cb0f15c54d2a9dd1a11e.jpeg","market_price":19800,"goods_name":"【官方正品】 月瘦18斤懒人减肥神器甩脂机抖抖机瘦身腰带男女通用瘦肚子甩脂腰带瘦腿瘦腰震动甩肉机减肥机家用健身器材","hd_thumb_url":"http://omsproductionimg.yangkeduo.com/images/2017-11-07/2b7ddbd6ee03fa0b950e68d332eca159.jpeg","quantity":3941,"is_onsale":true,"goods_id":76754930,"is_app":0,"mall_id":472885,"region_limit":0},{"normal_price":500,"cnt":21,"thumb_url":"http://omsproductionimg.yangkeduo.com/images/2017-10-18/637ecb8a0f55a80106d6ebfd1f72f98f.jpeg","event_type":0,"country":"","short_name":"【官方正品授权  套装赠送面膜】一枝春素颜霜护肤品爽肤水乳液套装面膜正品补水保湿学生少女化妆品","group":{"customer_num":2,"price":299},"allowed_region":"2,3,4,6,7,8,10,11,12,13,14,15,16,17,18,22,23,24,25,26,27,30,31,32","time":1510543478,"image_url":"http://omsproductionimg.yangkeduo.com/images/2017-10-19/6fc5ced3a878ea00dff09c3f365172e3.jpeg","market_price":10900,"goods_name":"【官方正品授权  套装赠送面膜】一枝春素颜霜护肤品爽肤水乳液套装面膜正品补水保湿学生少女化妆品","hd_thumb_url":"http://omsproductionimg.yangkeduo.com/images/2017-10-18/be455c985b7421ac7d1c365db2f9140a.jpeg","quantity":729,"is_onsale":true,"goods_id":127790043,"is_app":0,"mall_id":683074,"region_limit":1},{"normal_price":1280,"cnt":26111,"thumb_url":"http://omsproductionimg.yangkeduo.com/images/2017-10-26/300db0eb071093518a91820b13c2c052.jpeg","event_type":0,"country":"","short_name":"【7天亮白牙齿】【草本去牙渍黄牙神器】【一刷就白】 牙齿口腔美白洗牙洁牙粉去黄牙烟牙牙垢烟渍牙结石素口臭","group":{"customer_num":2,"price":980},"allowed_region":"2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32","time":1509023981,"image_url":"http://omsproductionimg.yangkeduo.com/images/2017-10-26/d537eaa259306ba8646cb5b1e3d92d18.jpeg","market_price":9900,"goods_name":"【7天亮白牙齿】【草本去牙渍黄牙神器】【一刷就白】 牙齿口腔美白洗牙洁牙粉去黄牙烟牙牙垢烟渍牙结石素口臭","hd_thumb_url":"http://omsproductionimg.yangkeduo.com/images/2017-10-26/437d6223ef53b4ee16f8a1e141568004.jpeg","quantity":7889,"is_onsale":true,"goods_id":146552090,"is_app":0,"mall_id":741553,"region_limit":0},{"normal_price":680,"cnt":263,"thumb_url":"http://omsproductionimg.yangkeduo.com/images/2017-10-03/36fcc3b49978dec5e80de8faeada2f76.jpeg","event_type":0,"country":"","short_name":"【买一送一】果冻变色口红晶透不掉色口红保湿滋润补水不沾杯孕妇小孩可用咬唇妆不脱色口红温变润唇膏3.8g","group":{"customer_num":2,"price":580},"allowed_region":"2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32","time":1510539274,"image_url":"http://omsproductionimg.yangkeduo.com/images/2017-09-13/d1dddbd8aba04c8fa14eac44e8131939.jpeg","market_price":9900,"goods_name":"【买一送一】果冻变色口红晶透不掉色口红保湿滋润补水不沾杯孕妇小孩可用咬唇妆不脱色口红温变润唇膏3.8g","hd_thumb_url":"http://omsproductionimg.yangkeduo.com/images/2017-10-03/21ec83465b4f69e3f7ed2b1f88fdaca7.jpeg","quantity":14767,"is_onsale":true,"goods_id":78778373,"is_app":0,"mall_id":529124,"region_limit":0}]
+     * server_time : 1510557226
+     */
+
+    public long ver;
+    public int server_time;
+    public List<GoodsListBean> goods_list;
+
+    public static SYBean objectFromData(String str) {
+
+        return new Gson().fromJson(str, SYBean.class);
+    }
+
+    public static class GoodsListBean {
+        /**
+         * normal_price : 6500
+         * cnt : 146
+         * thumb_url : http://omsproductionimg.yangkeduo.com/images/2017-11-08/7431f99f92d5a534b8ebb185cdc66e1a.jpeg
+         * event_type : 12
+         * country :
+         * short_name : 【亏本冲量 1000件卖完涨价】雨婷家纺加厚床单床裙床罩磨毛四件套秋冬保暖韩版公主四件套 1.5/1.8/2.0米床可选
+         * group : {"customer_num":2,"price":6380}
+         * allowed_region : 2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32
+         * time : 1510320303
+         * image_url : http://omsproductionimg.yangkeduo.com/images/2017-11-08/d2aadb6fa18b98734b56d5d1ffd82f80.jpeg
+         * market_price : 19900
+         * goods_name : 【亏本冲量 1000件卖完涨价】雨婷家纺加厚床单床裙床罩磨毛四件套秋冬保暖韩版公主四件套 1.5/1.8/2.0米床可选
+         * hd_thumb_url : http://omsproductionimg.yangkeduo.com/images/2017-11-08/073882cdd288317459c8181e91f45547.jpeg
+         * quantity : 854
+         * is_onsale : true
+         * goods_id : 184431045
+         * is_app : 0
+         * mall_id : 913019
+         * region_limit : 0
+         */
+
+        public int normal_price;
+        public int cnt;
+        public String thumb_url;
+        public int event_type;
+        public String country;
+        public String short_name;
+        public GroupBean group;
+        public String allowed_region;
+        public int time;
+        public String image_url;
+        public int market_price;
+        public String goods_name;
+        public String hd_thumb_url;
+        public int quantity;
+        public boolean is_onsale;
+        public int goods_id;
+        public int is_app;
+        public int mall_id;
+        public int region_limit;
+
+        public static GoodsListBean objectFromData(String str) {
+
+            return new Gson().fromJson(str, GoodsListBean.class);
+        }
+
+        public static class GroupBean {
+            /**
+             * customer_num : 2
+             * price : 6380
+             */
+
+            public int customer_num;
+            public int price;
+
+            public static GroupBean objectFromData(String str) {
+
+                return new Gson().fromJson(str, GroupBean.class);
+            }
+        }
+    }
+}

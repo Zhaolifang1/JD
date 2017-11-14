@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FDFDFD">
+
+
+    <ScrollView
+        android:id="@+id/scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+       >
+
+        <RelativeLayout
+            android:id="@+id/rrr"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/fg_homepage_title"
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+
+                <com.youth.banner.Banner
+                    android:id="@+id/fg_homepage_banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+                </com.youth.banner.Banner>
+                <com.example.jd.home.view.TitleView_Home
+                    android:id="@+id/fg_homepage_head"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"></com.example.jd.home.view.TitleView_Home>
+
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/grid"
+                android:layout_width="match_parent"
+                android:layout_height="210dp"
+                android:background="#FFFFFF"
+                android:layout_below="@+id/fg_homepage_title"
+                >
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/viewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+                <LinearLayout
+                    android:id="@+id/points"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/viewdown"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_below="@+id/grid">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="头条"
+                    android:textColor="#f00"
+                    android:textSize="30dp"
+                    android:padding="10dp"/>
+                <com.example.jd.home.view.UPMarqueeView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:id="@+id/upView"></com.example.jd.home.view.UPMarqueeView>
+
+            </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/viewdown"
+                android:layout_gravity="bottom">
+
+            </android.support.v7.widget.RecyclerView>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>
