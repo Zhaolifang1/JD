@@ -1,5 +1,6 @@
 package com.example.jd.mine.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -10,8 +11,6 @@ import android.widget.TextView;
 
 import com.example.jd.R;
 
-import butterknife.ButterKnife;
-import butterknife.InjectView;
 
 /**
  * @author 赵利芳
@@ -22,22 +21,27 @@ import butterknife.InjectView;
 public class MyFragment extends Fragment{
 
     private View view;
+    private TextView login;
 
-    @InjectView(R.id.login_register_tv)
-    TextView login;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_my, null);
-        ButterKnife.inject(getActivity());
+
         initView();
 
         return view;
     }
 
     private void initView() {
-
+        login=view.findViewById(R.id.login_register_tv);
+    login.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            startActivity(new Intent(getActivity(), LoginActivity.class));
+        }
+    });
 
     }
     @Override

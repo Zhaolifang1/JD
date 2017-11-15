@@ -20,7 +20,7 @@ import com.example.jd.R;
 import com.example.jd.home.adapter.MyGridViewAdapter;
 import com.example.jd.home.adapter.MyViewPagerAdapter;
 import com.example.jd.home.adapter.SYMyAdapter;
-import com.example.jd.home.api.Api;
+import com.example.jd.api.Api;
 import com.example.jd.home.bean.ProductListBean;
 import com.example.jd.home.bean.SYBean;
 import com.example.jd.home.presenter.Presenter;
@@ -79,8 +79,8 @@ public class HomeFragment extends Fragment implements Iview, ViewPager.OnPageCha
         initParam();
         initdata();
         initViews();
-        GridLayoutManager glide = new GridLayoutManager(getContext(),2);
-        recycler.setLayoutManager(glide);
+        GridLayoutManager grid= new GridLayoutManager(getContext(),2);
+        recycler.setLayoutManager(grid);
         Presenter persenter = new Presenter(this);
         persenter.getok(Api.SY);
 

@@ -1,7 +1,7 @@
 package com.example.jd.home.model;
 
-import com.example.jd.home.api.Api;
-import com.example.jd.home.api.ApiService;
+import com.example.jd.api.Api;
+import com.example.jd.api.ApiService;
 import com.example.jd.home.bean.SYBean;
 
 import java.util.ArrayList;
