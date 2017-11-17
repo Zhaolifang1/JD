@@ -17,9 +17,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    //jni
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
 }
-repositories{
-    flatDir{
+repositories {
+    mavenCentral()
+    flatDir {
         dirs 'libs' //就是你放aar的目录地址
     }
 }
@@ -29,6 +36,9 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    compile files('libs/MobCommons-2017.0607.1736.jar')
+    compile name: 'SMSSDK-3.0.0', ext: 'aar'
+    compile name: 'SMSSDKGUI-3.0.0', ext: 'aar'
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:recyclerview-v7:26.+'
@@ -39,8 +49,13 @@ dependencies {
     compile 'io.reactivex:rxandroid:1.1.0'
     compile 'com.youth.banner:banner:1.4.9'
     compile 'com.jakewharton:butterknife:7.0.1'
+    compile 'com.facebook.fresco:fresco:0.12.0'
+    compile 'com.facebook.fresco:animated-base-support:0.12.0'
+    compile 'org.greenrobot:eventbus:3.0.0'
     testCompile 'junit:junit:4.12'
-    compile files('libs/MobCommons-2017.0607.1736.jar')
-    compile name:'SMSSDK-3.0.0',ext:'aar'
-    compile name:'SMSSDKGUI-3.0.0',ext:'aar'
+    compile(name: 'ijkplayer-java-release', ext: 'aar')
+    compile project(':zxinglibrary')
+    compile 'com.yanzhenjie:permission:1.0.8'
+    compile files('libs/SocialSDK_QQ_Simplify.jar')
+    compile files('libs/universal-image-loader-1.9.5.jar')
 }

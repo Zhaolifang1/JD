@@ -1,7 +1,10 @@
 package com.example.jd.home.view;
 
+import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -17,18 +20,24 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.jd.R;
+import com.example.jd.api.Api;
 import com.example.jd.home.adapter.MyGridViewAdapter;
 import com.example.jd.home.adapter.MyViewPagerAdapter;
 import com.example.jd.home.adapter.SYMyAdapter;
-import com.example.jd.api.Api;
 import com.example.jd.home.bean.ProductListBean;
 import com.example.jd.home.bean.SYBean;
 import com.example.jd.home.presenter.Presenter;
+import com.yanzhenjie.permission.AndPermission;
+import com.yanzhenjie.permission.PermissionListener;
 import com.youth.banner.Banner;
 import com.youth.banner.loader.ImageLoader;
+import com.yzq.zxinglibrary.Consants;
+import com.yzq.zxinglibrary.android.CaptureActivity;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static android.app.Activity.RESULT_OK;
 
 /**
  * @author 赵利芳
@@ -64,8 +73,9 @@ public class HomeFragment extends Fragment implements Iview, ViewPager.OnPageCha
     private UPMarqueeView upview1;
     List<String> data = new ArrayList<>();
     List<View> views = new ArrayList<>();
-
-
+    private TitleView_Home fg_homepage_head;
+    /*自己随便定义请求码*/
+    private final int REQUEST_CODE_SCAN = 555;
 
     @Nullable
     @Override
@@ -83,11 +93,45 @@ public class HomeFragment extends Fragment implements Iview, ViewPager.OnPageCha
         recycler.setLayoutManager(grid);
         Presenter persenter = new Presenter(this);
         persenter.getok(Api.SY);
-
+        fg_homepage_head.TitlezxingListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               zxing();
+            }
+        });
         return view;
     }
+    public void zxing(){
+         /*先申请相机权限*/
+        AndPermission.with(this)
+                .permission(Manifest.permission.CAMERA)
+                .callback(new PermissionListener() {
+                    @Override
+                    public void onSucceed(int requestCode, @NonNull List<String> grantPermissions) {
+                        Intent intent = new Intent(getActivity(),
+                                CaptureActivity.class);
+                        startActivityForResult(intent, REQUEST_CODE_SCAN);
+                    }
 
+                    @Override
+                    public void onFailed(int requestCode, @NonNull List<String> deniedPermissions) {
+                        Toast.makeText(getActivity(), "您没有给权限，请检查", Toast.LENGTH_LONG).show();
+                    }
+                }).start();
+    }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
+        // 扫描二维码/条码回传
+        if (requestCode == REQUEST_CODE_SCAN && resultCode == RESULT_OK) {
+            if (data != null) {
+                String content = data.getStringExtra(Consants.CODED_CONTENT);
+//                resultTv.setText("扫描结果为：" + content);
+//                resultTv.loadUrl(content);
+            }
+        }
+    }
 
     /**
      * 实例化控件
@@ -218,6 +262,7 @@ public class HomeFragment extends Fragment implements Iview, ViewPager.OnPageCha
         viewPager =  view.findViewById(R.id.viewPager);
         //初始化小圆点指示器
         points =  view.findViewById(R.id.points);
+        fg_homepage_head = view.findViewById(R.id.fg_homepage_head);
 
     }
 

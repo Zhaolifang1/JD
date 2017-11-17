@@ -13,8 +13,14 @@ import android.widget.Toast;
 
 import com.example.jd.R;
 import com.example.jd.mine.presenter.MyPresenter;
+import com.umeng.socialize.UMAuthListener;
+import com.umeng.socialize.UMShareAPI;
+import com.umeng.socialize.bean.SHARE_MEDIA;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -77,9 +83,56 @@ public class LoginActivity extends AppCompatActivity implements MyIView {
                 startActivity(new Intent(this, RegisterActivity.class));
                 break;
             case R.id.QQ:
+                UMShareAPI.get(LoginActivity.this).getPlatformInfo(LoginActivity.this, SHARE_MEDIA.QQ, authListener);
                 break;
         }
     }
+    UMAuthListener authListener = new UMAuthListener() {
+        /**
+         * @desc 授权开始的回调
+         * @param platform 平台名称
+         */
+        @Override
+        public void onStart(SHARE_MEDIA platform) {
+        }
+
+        /**
+         * @desc 授权成功的回调
+         * @param platform 平台名称
+         * @param action 行为序号，开发者用不上
+         * @param data 用户资料返回
+         */
+        @Override
+        public void onComplete(SHARE_MEDIA platform, int action, Map<String, String> data) {
+            Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_LONG).show();
+            String iconurl = data.get("iconurl");
+            String name = data.get("name");
+            //使用EventBus把值传给我的
+            EventBus.getDefault().post(new FirstEvent(iconurl, name));
+            finish();
+        }
+
+        /**
+         * @desc 授权失败的回调
+         * @param platform 平台名称
+         * @param action 行为序号，开发者用不上
+         * @param t 错误原因
+         */
+        @Override
+        public void onError(SHARE_MEDIA platform, int action, final Throwable t) {
+            Toast.makeText(LoginActivity.this, "登录失败：" + t.getMessage(), Toast.LENGTH_LONG).show();
+        }
+
+        /**
+         * @desc 授权取消的回调
+         * @param platform 平台名称
+         * @param action 行为序号，开发者用不上
+         */
+        @Override
+        public void onCancel(SHARE_MEDIA platform, int action) {
+            Toast.makeText(LoginActivity.this, "取消了", Toast.LENGTH_LONG).show();
+        }
+    };
 
     //通过MOb注册手机
     private void Mobile_ByMob_Register() {
@@ -99,7 +152,11 @@ public class LoginActivity extends AppCompatActivity implements MyIView {
         });
         registerPage.show(LoginActivity.this);
     }
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        UMShareAPI.get(this).onActivityResult(requestCode, resultCode, data);
+    }
     @Override
     public void onLoginSuccess(String code) {
         if (code.equals("0")) {

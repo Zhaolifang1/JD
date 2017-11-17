@@ -6,6 +6,7 @@
     <color name="white">#FFFFFF</color>
     <color name="black">#000</color>
     <color name="background">#f1f1f1</color>
+    <color name="View_BG">#e6e0e0</color>
 
     <color name="sred">#ff4141</color>
     <color name="gold">#d8ab5c</color>
@@ -154,4 +155,6 @@
     //加入购物车选中
     <color name="add_buy">#e7633f</color>
     <color name="colorRed">#ff0000</color>
+    <color name="FenLeiBGColor">#e2e5e7</color>
+    <color name="FenLeiBGColor2">#ffffff</color>
 </resources>

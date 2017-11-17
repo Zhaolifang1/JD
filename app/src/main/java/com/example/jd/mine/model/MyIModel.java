@@ -9,4 +9,5 @@ package com.example.jd.mine.model;
 public interface MyIModel {
     //联网登陆
     void HttpLogin(String mobile, String password);
+
 }
