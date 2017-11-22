@@ -1,6 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        config {
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+            storeFile file('F:/QQlogin/umeng_android_social_sdk_6.4.5_custom/debug.keystore')
+            storePassword 'android'
+        }
+    }
     compileSdkVersion 26
     buildToolsVersion "26.0.2"
     defaultConfig {
@@ -10,10 +18,16 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.config
     }
     buildTypes {
         release {
             minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            signingConfig signingConfigs.debug
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -22,6 +36,8 @@ android {
         main {
             jniLibs.srcDirs = ['libs']
         }
+    }
+    productFlavors {
     }
 }
 repositories {
@@ -39,6 +55,10 @@ dependencies {
     compile files('libs/MobCommons-2017.0607.1736.jar')
     compile name: 'SMSSDK-3.0.0', ext: 'aar'
     compile name: 'SMSSDKGUI-3.0.0', ext: 'aar'
+    compile(name: 'ijkplayer-java-release', ext: 'aar')
+    compile project(':zxinglibrary')
+    compile files('libs/SocialSDK_QQ_Simplify.jar')
+    compile files('libs/universal-image-loader-1.9.5.jar')
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:recyclerview-v7:26.+'
@@ -52,10 +72,6 @@ dependencies {
     compile 'com.facebook.fresco:fresco:0.12.0'
     compile 'com.facebook.fresco:animated-base-support:0.12.0'
     compile 'org.greenrobot:eventbus:3.0.0'
-    testCompile 'junit:junit:4.12'
-    compile(name: 'ijkplayer-java-release', ext: 'aar')
-    compile project(':zxinglibrary')
     compile 'com.yanzhenjie:permission:1.0.8'
-    compile files('libs/SocialSDK_QQ_Simplify.jar')
-    compile files('libs/universal-image-loader-1.9.5.jar')
+    testCompile 'junit:junit:4.12'
 }

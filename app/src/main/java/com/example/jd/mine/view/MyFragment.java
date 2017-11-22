@@ -22,6 +22,7 @@ import org.greenrobot.eventbus.Subscribe;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 import static com.example.jd.R.id.login_register_tv;
 
@@ -36,8 +37,10 @@ public class MyFragment extends Fragment {
 
     @Bind(R.id.hander)
     ImageView hander;
+    @Bind(login_register_tv)
+    TextView login;
     private View view;
-    private TextView login;
+
     private SharedPreferences hander_sp;
 
 
@@ -60,6 +63,7 @@ public class MyFragment extends Fragment {
         ButterKnife.bind(this, view);
         return view;
     }
+
     @Subscribe
     public void onEventMainThread(FirstEvent event) {
         hander_sp.edit().putString("ImageKey", event.getImg()).commit();
@@ -71,6 +75,7 @@ public class MyFragment extends Fragment {
             login.setText(hander_sp.getString("NameKey", null));
         }
     }
+
     //imageLoader 加载图片
     public static void setImageByImageLoader(String uri, ImageView img) {
         DisplayImageOptions build = new DisplayImageOptions.Builder()
@@ -81,8 +86,7 @@ public class MyFragment extends Fragment {
 
                 .displayer(new CircleBitmapDisplayer())
                 .build();
-//        ImageLoader.getInstance().displayImage(uri, img, build);
-        ImageLoader.getInstance().displayImage(uri,img,build);
+        ImageLoader.getInstance().displayImage(uri, img, build);
     }
     //注销EventBus
     @Override
@@ -90,15 +94,11 @@ public class MyFragment extends Fragment {
         super.onDestroy();
         EventBus.getDefault().unregister(this);//反注册EventBus
     }
+
     private void initView() {
-        login = view.findViewById(login_register_tv);
+
         hander_sp = getActivity().getSharedPreferences("handerImage", Context.MODE_PRIVATE);
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getActivity(), LoginActivity.class));
-            }
-        });
+
 
     }
 
@@ -107,5 +107,10 @@ public class MyFragment extends Fragment {
         super.onDestroyView();
         ButterKnife.unbind(this);
 
+    }
+
+    @OnClick(login_register_tv)
+    public void onViewClicked() {
+        startActivity(new Intent(getActivity(), LoginActivity.class));
     }
 }

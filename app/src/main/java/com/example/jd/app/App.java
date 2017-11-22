@@ -20,6 +20,7 @@ import java.io.File;
  */
 
 public class App extends MobApplication {
+
     {
         PlatformConfig.setQQZone("1106036236","mjFCi0oxXZKZEWJs");
     }
@@ -45,4 +46,5 @@ public class App extends MobApplication {
                 .build();
         ImageLoader.getInstance().init(build);
     }
+
 }

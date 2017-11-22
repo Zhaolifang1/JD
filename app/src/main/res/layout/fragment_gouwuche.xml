@@ -1,9 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <TextView
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:id="@+id/gouwuche_topbar"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:background="#272727"
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+        <TextView
+            android:background="#f00"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="购物车"
+            android:gravity="center"
+            android:textColor="#fff"
+            android:textSize="20dp"
+            />
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/gouwuche_footer"
+        android:layout_alignParentBottom="true">
+        <CheckBox
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:button="@null"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/checkbox_style"
+            android:id="@+id/gouwuche_footer_check"
+            />
+        <TextView
+            android:text="结算(0)"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:background="#f00"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:id="@+id/gouwuche_footer_jiesuan"
+            android:clickable="true"
+            android:layout_alignParentRight="true"
+            android:textSize="14dp"
+            />
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text=" ￥ 0 "
+            android:id="@+id/gouwuche_footer_price"
+            android:layout_marginLeft="150dp"
+            android:layout_marginRight="10dp"
+            android:layout_centerVertical="true"
+            android:textColor="#FF5201"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="合计:"
+            android:layout_marginLeft="120dp"
+            android:id="@+id/gouwuche_footer_heji"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+    <ExpandableListView
+        android:layout_above="@+id/gouwuche_footer"
+        android:id="@+id/gouwuche_expanded"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="购物车"/>
-</LinearLayout>
+        android:layout_below="@+id/gouwuche_topbar">
+    </ExpandableListView>
+    <TextView
+        android:id="@+id/gouwuche_tv"
+        android:textSize="15dp"
+        android:textColor="#f00"
+        android:gravity="center"
+        android:text="请先登录"
+        android:layout_above="@+id/gouwuche_footer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</RelativeLayout>

@@ -21,6 +21,7 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -29,7 +30,7 @@ import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-public class XiangQing extends AppCompatActivity implements PlayerManager.PlayerStateListener{
+public class XiangQing extends AppCompatActivity implements PlayerManager.PlayerStateListener {
 
     //    @Bind(R.id.goodsImg)
 //    ImageView goodsImg;
@@ -60,6 +61,7 @@ public class XiangQing extends AppCompatActivity implements PlayerManager.Player
     private String url3 = "rtsp://184.72.239.149/vod/mp4:BigBuckBunny_115k.mov";
     private String url4 = "http://ips.ifeng.com/video19.ifeng.com/video09/2014/06/16/1989823-102-086-0009.mp4";
     private String url5 = "http://mp4.vjshi.com/2013-05-28/2013052815051372.mp4";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -99,6 +101,7 @@ public class XiangQing extends AppCompatActivity implements PlayerManager.Player
                     }
                 });
     }
+
     private void initPlayer() {
 //        //初始化播放器
         player = new PlayerManager(this);
@@ -108,6 +111,7 @@ public class XiangQing extends AppCompatActivity implements PlayerManager.Player
         player.setPlayerStateListener(XiangQing.this);
         player.play(url5);
     }
+
     @Subscribe(threadMode = ThreadMode.POSTING, sticky = true)
     public void ononMoonStickyEvent(MessageEvent messageEvent) {
         name = messageEvent.getMessage();
@@ -120,6 +124,7 @@ public class XiangQing extends AppCompatActivity implements PlayerManager.Player
         EventBus.getDefault().unregister(this);
 
     }
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         if (player.gestureDetector.onTouchEvent(event))
@@ -152,4 +157,11 @@ public class XiangQing extends AppCompatActivity implements PlayerManager.Player
     public void onPlay() {
 
     }
+
+    @OnClick(R.id.gouwuche)
+    public void onViewClicked() {
+//        finish();
+//        MainActivity.IntentGouWuChe(2);
+    }
+
 }
