@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,12 +20,11 @@ import com.nostra13.universalimageloader.core.display.CircleBitmapDisplayer;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-
-import static com.example.jd.R.id.login_register_tv;
 
 
 /**
@@ -37,12 +37,20 @@ public class MyFragment extends Fragment {
 
     @Bind(R.id.hander)
     ImageView hander;
-    @Bind(login_register_tv)
+
+
+    @Bind(R.id.login_register_tv)
     TextView login;
+    @Bind(R.id.set)
+    ImageView set;
     private View view;
 
     private SharedPreferences hander_sp;
-
+    private String a;
+    private ImageView img;
+    private ImageView my_sz;
+    private int b;
+    private static final String TAG = "MyFragment";
 
     @Nullable
     @Override
@@ -52,6 +60,19 @@ public class MyFragment extends Fragment {
         initView();
         //注册EventBus
         EventBus.getDefault().register(this);
+//        img = (ImageView) view.findViewById(R.id.roundImageView);
+//
+//        my_sz = (ImageView) view.findViewById(R.id.my_sz);
+
+
+//        hander.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                Intent intent = new Intent(getActivity(),TuiChu.class);
+//                startActivity(intent);
+//            }
+//        });
         //加载默认显示头像
         if (hander_sp.getString("ImageKey", null) != null) {
             setImageByImageLoader(hander_sp.getString("ImageKey", null), hander);
@@ -62,6 +83,30 @@ public class MyFragment extends Fragment {
         }
         ButterKnife.bind(this, view);
         return view;
+    }
+
+    //接收适配器传过来的值
+    @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(Shuju event) {
+        a = event.getA();
+        b = event.getB();
+        Log.i(TAG, "asasas" + b);
+        login.setText("18701295759");
+
+        if (a != null) {
+            hander.setBackgroundResource(R.drawable.aaa);
+        }
+
+
+    }
+
+    @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(TuiChuaa event) {
+        String aaa = event.getName();
+        if (aaa != null) {
+            login.setText(aaa);
+            hander.setBackgroundResource(R.mipmap.b3h);
+        }
     }
 
     @Subscribe
@@ -81,13 +126,11 @@ public class MyFragment extends Fragment {
         DisplayImageOptions build = new DisplayImageOptions.Builder()
                 .cacheInMemory(true)
                 .cacheOnDisk(true)
-                .showImageForEmptyUri(R.mipmap.b3h)
-                .showImageOnFail(R.mipmap.b3h)
-
                 .displayer(new CircleBitmapDisplayer())
                 .build();
         ImageLoader.getInstance().displayImage(uri, img, build);
     }
+
     //注销EventBus
     @Override
     public void onDestroy() {
@@ -96,9 +139,7 @@ public class MyFragment extends Fragment {
     }
 
     private void initView() {
-
         hander_sp = getActivity().getSharedPreferences("handerImage", Context.MODE_PRIVATE);
-
 
     }
 
@@ -109,8 +150,37 @@ public class MyFragment extends Fragment {
 
     }
 
-    @OnClick(login_register_tv)
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+
+    }
+
+
+    @OnClick({R.id.login_register_tv, R.id.set})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.login_register_tv:
+                startActivity(new Intent(getActivity(), LoginActivity.class));
+                break;
+            case R.id.set:
+                startActivity(new Intent(getActivity(),SetActivity.class));
+//                Intent intent = new Intent(getActivity(), TuiChu.class);
+//                startActivity(intent);
+                break;
+        }
+    }
+
+    @OnClick(R.id.hander)
     public void onViewClicked() {
-        startActivity(new Intent(getActivity(), LoginActivity.class));
+        Intent intent = new Intent(getActivity(), TuiChu.class);
+        startActivity(intent);
     }
 }

@@ -1,5 +1,6 @@
 package com.example.jd;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;
@@ -12,6 +13,7 @@ import android.view.WindowManager;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import com.example.jd.found.FoundActivity;
 import com.example.jd.home.view.HomeFragment;
 import com.example.jd.home.view.NoScrollViewPager;
 import com.example.jd.mine.view.MyFragment;
@@ -38,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         setContentView(R.layout.activity_main);
         initView();
-        ClickListener();
+        ClickListener(); 
         vpAdapter = new VpAdapter(getSupportFragmentManager());
         viewPager.setAdapter(vpAdapter);
     }
@@ -71,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
         list = new ArrayList<>();
         list.add(new HomeFragment());
         list.add(new SortFragment());
+        list.add(new FoundActivity());
         list.add(new ShopFragment());
         list.add(new MyFragment());
     }
@@ -97,4 +100,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+        int tosome = getIntent().getIntExtra("to_shop",0);
+    viewPager.setCurrentItem(tosome);}
 }

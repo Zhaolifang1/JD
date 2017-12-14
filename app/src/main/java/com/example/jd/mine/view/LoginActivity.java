@@ -1,6 +1,7 @@
 package com.example.jd.mine.view;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -30,7 +31,7 @@ import cn.smssdk.SMSSDK;
 import cn.smssdk.gui.RegisterPage;
 
 public class LoginActivity extends AppCompatActivity implements MyIView {
-
+    private SharedPreferences sp;
     public static final String TAG = "LoginActivity";
     @Bind(R.id.close)
     ImageView close;
@@ -56,7 +57,7 @@ public class LoginActivity extends AppCompatActivity implements MyIView {
     @Bind(R.id.btnlogin)
     Button btnlogin;
     private MyPresenter myPresenter;
-
+    private int b=1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -145,6 +146,9 @@ public class LoginActivity extends AppCompatActivity implements MyIView {
             Toast.makeText(LoginActivity.this, "登陆成功!", Toast.LENGTH_SHORT).show();
             Log.d(TAG, "onLoginSuccess: ===========" + code);
             finish();
+            String s = code.toString();
+            Shuju shuju = new Shuju(s,b);
+            EventBus.getDefault().postSticky(shuju);
         }
     }
 

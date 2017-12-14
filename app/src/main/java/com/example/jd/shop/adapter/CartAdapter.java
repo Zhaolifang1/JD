@@ -220,7 +220,7 @@ public class CartAdapter extends BaseExpandableListAdapter {
                 }
                 else if(childBean1.saleNum==0)
                 {
-                    Toast.makeText(context, "真抠,最少一个,不能再少了", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "用户最少数量为1", Toast.LENGTH_SHORT).show();
                     childBean.saleNum=1;
                 }
             }

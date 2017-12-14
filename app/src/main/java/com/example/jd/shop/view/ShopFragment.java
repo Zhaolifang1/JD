@@ -93,11 +93,11 @@ public class ShopFragment extends Fragment implements View.OnClickListener,ICart
             gouwuche_tv.setVisibility(View.GONE);
             expandableListView.setVisibility(View.VISIBLE);
             //调用P层获取数据
-            String uid=sp.getString("uid","160");
+            String uid=sp.getString("uid","71");
             HashMap<String,String> params=new HashMap<>();
             params.put("uid",uid);
             utils=new HttpUtils();
-            utils.postMap("http://120.27.23.105/product/getCarts", params, new HttpUtils.HttpCallBack() {
+            utils.postMap("http://120.27.23.105/product/getCarts?source=android&", params, new HttpUtils.HttpCallBack() {
                 @Override
                 public void onSusscess(String data) {
                     Gson gson=new Gson();
@@ -228,7 +228,7 @@ public class ShopFragment extends Fragment implements View.OnClickListener,ICart
         HashMap<String,String> params=new HashMap<>();
         params.put("uid",uid);
         params.put("pid",pid);
-        utils.postMap("http://120.27.23.105/product/deleteCart", params, new HttpUtils.HttpCallBack() {
+        utils.postMap("http://120.27.23.105/product/deleteCart?source=android&", params, new HttpUtils.HttpCallBack() {
             @Override
             public void onSusscess(String data) {
                 parentList.clear();
@@ -278,7 +278,7 @@ public class ShopFragment extends Fragment implements View.OnClickListener,ICart
     public void adddingdan(){
         HttpUtils utils=new HttpUtils();
         sp=getContext().getSharedPreferences("User", Context.MODE_PRIVATE);
-        String uid = sp.getString("uid", "160");
+        String uid = sp.getString("uid", "71");
         Map<String,String> map=new HashMap<>();
         map.put("uid",uid);
         map.put("price",sum+"");

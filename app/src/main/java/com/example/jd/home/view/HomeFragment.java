@@ -99,6 +99,13 @@ public class HomeFragment extends Fragment implements Iview, ViewPager.OnPageCha
                zxing();
             }
         });
+        fg_homepage_head.setSearchListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), SouSuoActivity.class);
+                startActivity(intent);
+            }
+        });
         return view;
     }
     public void zxing(){

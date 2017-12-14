@@ -1,18 +1,21 @@
 package com.example.jd.sort.view;
 
+import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.MotionEvent;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.example.jd.MainActivity;
 import com.example.jd.R;
 import com.example.jd.api.Api;
 import com.example.jd.api.ApiService;
-import com.example.jd.app.MessageEvent;
-import com.example.jd.ijkplayer.common.PlayerManager;
+import com.example.jd.sort.bean.GoodEvent;
 import com.example.jd.sort.bean.XiangQingBean;
 
 import org.greenrobot.eventbus.EventBus;
@@ -30,10 +33,10 @@ import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-public class XiangQing extends AppCompatActivity implements PlayerManager.PlayerStateListener {
+public class XiangQing extends AppCompatActivity  {
 
-    //    @Bind(R.id.goodsImg)
-//    ImageView goodsImg;
+        @Bind(R.id.goodsImg)
+        ImageView goodsImg;
     @Bind(R.id.goodsTitle)
     TextView goodsTitle;
     @Bind(R.id.bargainPrice)
@@ -54,13 +57,11 @@ public class XiangQing extends AppCompatActivity implements PlayerManager.Player
     Button addBuy;
 
     String name = "";
+    @Bind(R.id.change)
+    RelativeLayout change;
 
-    private PlayerManager player;
-    private String url1 = "rtmp://203.207.99.19:1935/live/CCTV5";
-    private String url2 = "http://zv.3gv.ifeng.com/live/zhongwen800k.m3u8";
-    private String url3 = "rtsp://184.72.239.149/vod/mp4:BigBuckBunny_115k.mov";
-    private String url4 = "http://ips.ifeng.com/video19.ifeng.com/video09/2014/06/16/1989823-102-086-0009.mp4";
-    private String url5 = "http://mp4.vjshi.com/2013-05-28/2013052815051372.mp4";
+
+    private String pid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +75,7 @@ public class XiangQing extends AppCompatActivity implements PlayerManager.Player
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build();
         ApiService apiService = retrofit.create(ApiService.class);
-        Observable<XiangQingBean> goodsInfo = apiService.getGoodsInfo(name + "1");
+        Observable<XiangQingBean> goodsInfo = apiService.getGoodsInfo(pid,"android");
         goodsInfo.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<XiangQingBean>() {
@@ -90,9 +91,9 @@ public class XiangQing extends AppCompatActivity implements PlayerManager.Player
 
                     @Override
                     public void onNext(XiangQingBean xiangQingBean) {
-//                        String[] images = xiangQingBean.data.images.split("\\|");
-//                        Glide.with(XiangQing.this).load(images[0]).into(goodsImg);
-                        initPlayer();
+                        String[] images = xiangQingBean.data.images.split("\\|");
+                        Glide.with(XiangQing.this).load(images[0]).into(goodsImg);
+//                        initPlayer();
                         goodsTitle.setText(xiangQingBean.data.title);
                         bargainPrice.setText("¥" + xiangQingBean.data.bargainPrice);
                         originalPrice.setText("原价 " + xiangQingBean.data.price);
@@ -102,20 +103,21 @@ public class XiangQing extends AppCompatActivity implements PlayerManager.Player
                 });
     }
 
-    private void initPlayer() {
-//        //初始化播放器
-        player = new PlayerManager(this);
-        player.setFullScreenOnly(true);
-        player.setScaleType(PlayerManager.SCALETYPE_FILLPARENT);
-        player.playInFullScreen(true);
-        player.setPlayerStateListener(XiangQing.this);
-        player.play(url5);
-    }
+//    private void initPlayer() {
+////        //初始化播放器
+//        player = new PlayerManager(this);
+//        player.setFullScreenOnly(true);
+//        player.setScaleType(PlayerManager.SCALETYPE_FILLPARENT);
+//        player.playInFullScreen(true);
+//        player.setPlayerStateListener(XiangQing.this);
+//        player.play(url5);
+//    }
 
     @Subscribe(threadMode = ThreadMode.POSTING, sticky = true)
-    public void ononMoonStickyEvent(MessageEvent messageEvent) {
-        name = messageEvent.getMessage();
-
+    public void ononMoonStickyEvent( GoodEvent messageEvent) {
+//        name = messageEvent.getPscid();
+        pid = messageEvent.getPid();
+//        Toast.makeText(XiangQing.this,"pid"+pid,Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -125,43 +127,13 @@ public class XiangQing extends AppCompatActivity implements PlayerManager.Player
 
     }
 
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        if (player.gestureDetector.onTouchEvent(event))
-            return true;
-        return super.onTouchEvent(event);
-    }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-        player.stop();
-    }
-
-    @Override
-    public void onComplete() {
-
-    }
-
-    @Override
-    public void onError() {
-
-    }
-
-    @Override
-    public void onLoading() {
-
-    }
-
-    @Override
-    public void onPlay() {
-
-    }
 
     @OnClick(R.id.gouwuche)
     public void onViewClicked() {
-//        finish();
-//        MainActivity.IntentGouWuChe(2);
+        Intent intent = new Intent(XiangQing.this,MainActivity.class);
+        intent.putExtra("to_shop",3);
+        startActivity(intent);
     }
 
 }

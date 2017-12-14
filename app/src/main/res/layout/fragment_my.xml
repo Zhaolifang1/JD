@@ -14,7 +14,7 @@
             android:layout_height="50dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="30dp"
-            android:src="@mipmap/b3h" />
+            android:background="@mipmap/b3h" />
 
         <TextView
             android:id="@+id/login_register_tv"
@@ -27,6 +27,7 @@
             android:textColor="#ffffff" />
 
         <ImageView
+            android:id="@+id/set"
             android:layout_width="22dp"
             android:layout_height="22dp"
             android:layout_alignParentRight="true"

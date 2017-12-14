@@ -41,6 +41,14 @@
               android:gravity="center"
               />
           <RadioButton
+              android:layout_width="0dp"
+              android:layout_height="match_parent"
+              android:layout_weight="1"
+              android:background="@drawable/faxian"
+              android:button="@null"
+              android:gravity="center"
+              />
+          <RadioButton
               android:id="@+id/rbgouwuche"
               android:layout_width="0dp"
               android:layout_height="match_parent"

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/tiaozhuan"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/card_bg"
+        android:layout_margin="5dp">
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/item_img"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_margin="10dp"
+
+            fresco:failureImage="@drawable/default_320" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="dfdv"
+        android:textSize="20sp"
+        android:textColor="#fff"
+        android:gravity="center"
+        android:id="@+id/title"/>
+</LinearLayout>

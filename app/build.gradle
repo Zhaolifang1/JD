@@ -59,6 +59,8 @@ dependencies {
     compile project(':zxinglibrary')
     compile files('libs/SocialSDK_QQ_Simplify.jar')
     compile files('libs/universal-image-loader-1.9.5.jar')
+    compile project(':library')
+    compile(name: 'ijkplayer-java-release', ext: 'aar')
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:recyclerview-v7:26.+'
@@ -73,5 +75,7 @@ dependencies {
     compile 'com.facebook.fresco:animated-base-support:0.12.0'
     compile 'org.greenrobot:eventbus:3.0.0'
     compile 'com.yanzhenjie:permission:1.0.8'
+    compile 'com.android.support:design:26.0.0-alpha1'
+    compile 'com.hjm:BottomTabBar:1.1.1'
     testCompile 'junit:junit:4.12'
 }

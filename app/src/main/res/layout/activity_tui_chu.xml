@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:fitsSystemWindows="true"
+        android:layout_height="match_parent"
+       >
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:background="#f00"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            >
+            <ImageView
+                android:id="@+id/iv_cha"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@mipmap/back2"
+                />
+            <TextView
+                android:textSize="18sp"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="#fff"
+                android:text="个人信息"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ll_my_head"
+            android:padding="10dp"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:id="@+id/ll_myInfo_head"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:layout_height="wrap_content">
+
+
+            </LinearLayout>
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ll_my_username"
+            android:padding="10dp"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="用户名"
+                />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:id="@+id/ll_myInfo_head2"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:layout_height="wrap_content">
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:id="@+id/tv_myInfo_username"-->
+                    <!--android:text="用户名"-->
+
+                    <!--/>-->
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@mipmap/b3h"/>
+
+            </LinearLayout>
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ll_my_nick"
+            android:padding="10dp"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="昵称"
+                />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:id="@+id/ll_myInfo_head3"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_myInfo_nick"
+                    android:text="青春"
+                    />
+
+            </LinearLayout>
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ll_my_sex"
+            android:padding="10dp"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:id="@+id/ll_myInfo_head4"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:layout_height="wrap_content">
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_my_birth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:padding="10dp">
+
+
+            <LinearLayout
+                android:id="@+id/ll_myInfo_head5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:orientation="horizontal">
+
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/toux"
+                android:layout_width="20dp"
+                android:layout_height="20dp"/>
+
+
+        </LinearLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="退出登录"
+            android:id="@+id/tuichu"
+
+            android:layout_gravity="center"
+            android:layout_below="@+id/imgcc"
+             />
+
+    </LinearLayout>
+
